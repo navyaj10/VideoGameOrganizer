@@ -1,0 +1,25 @@
+<% @stylers = ["info", "success", "danger", "warning", "active"] %>
+<table class="table table-striped table-hover">
+	<thead>
+		<tr class="<%= @stylers[0] %>">
+			<% unless @meta.nil? %>
+				<% @meta.each do |header| %>
+					<td><%= header.to_s %></td>
+				<% end %>
+			<% end %>	
+		</tr>
+	</thead>
+	<tbody>
+		<% unless @result.nil? %>
+			<% @result.each_with_index do |record, index| %>
+	   			<tr>
+	   				<% unless @meta.nil? %>
+						<% @meta.each_with_index do |header, index| %>
+							<td><%= record[index].to_s %></td>
+						<% end %>
+					<% end %>	
+				</tr>
+			<% end %>
+		<% end %>	
+	</tbody>
+</table>

@@ -1,0 +1,29 @@
+<div style="display: table;width: 100%;">
+	<div style="display: table-cell;width: 50%;">
+		<h3 style="float:left;">Queries</h3>
+		<div id="query-list" style="width: 100%; height: 200px; overflow-y: auto;float:left;clear:both;">
+			<% unless @jsonData.nil? %>
+			    <% @jsonData.each_with_index do |record, index| %>
+			    	<div id="query<%= index %>">
+						<h4>Query <%= index + 1 %></h4>
+					    <p style="word-wrap: break-word;"><%= record["query"] %></p>
+					    <p><a class="btn" href="#" id="exec_<%= index %>">Execute Query »</a></p>
+					</div>
+			    <% end %>
+			<% end %>	
+		</div>
+		<h3 style="float:left;">Custom Query</h3>
+		<div id="custom-query" style="width: 100%; height: 200px; float:left;">
+			<div id="cquery_outer">
+			    <textarea id="cquery" rows="5" cols="1000" style="width:98%;"></textarea>
+			    <p><a class="btn" href="#" id="cexec_query">Execute Query »</a></p>
+			</div>
+		</div>
+	</div>
+	<div style="display: table-cell;width: 50%;padding: 20px;">
+		<h3 style="float:left;">Output</h3>
+		<div id="output-list" style="width: 100%; height: 460px; overflow: auto;float:right;">
+			<div id="query-result"></div>
+		</div>
+	</div>
+</div>

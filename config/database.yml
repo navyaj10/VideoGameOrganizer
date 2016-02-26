@@ -1,0 +1,10 @@
+development:
+  adapter: mysql2
+  socket: /var/run/mysqld/mysqld.sock
+  host: localhost
+  username: root
+  password: root
+  database: videogames2
+  pool: 5
+  timeout: 5000
+  encoding: utf8

@@ -1,0 +1,106 @@
+<div style="display:table; width: 100%">
+<div style="width:50%; display: table-cell;">
+    <h3>Add a New Game to your Collection</h3>
+    <form class="navbar-form navbar-left" role="search" style="float:left;">
+      <div class="form-group">
+            <table>
+                <tbody>
+                    <tr>
+                        <td>Game Title : </td>
+                        <td>
+                            <select name="game-list">
+                               <option value="0">Select a Game Title</option>
+                               <% unless @game_list.nil? %>
+                                    <% @game_list.each_with_index do |record, index| %>
+                                        <option value="<%= record[0] %>"><%= record[1] %></option>
+                                    <% end %>
+                                <% end %>   
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Price : $</td>
+                        <td>
+                            <input type="text" id="game-price" value="0.00"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Purchase Date : </td>
+                        <td>
+                            <div class="input-append date" style="position: relative;">
+                                <input type="text" id="purchase-datepicker" data-provide='datepicker'/>
+                                <span class="add-on"><i class="icon-th"></i></span>
+                                <input type="hidden" id="purchase-date" value="0" />
+                                <div id="purchase-datepicker-ballon" style="position: absolute;"></div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Game Condition : </td>
+                        <td>
+                            <select name="game-condition">
+                               <option value="0">Select a Game Condition</option>
+                               <option value="BRAND NEW">BRAND NEW</option>
+                               <option value="MINT">MINT</option>
+                               <option value="VERY GOOD">VERY GOOD</option>
+                               <option value="GOOD">GOOD</option>
+                               <option value="ACCEPTABLE">ACCEPTABLE</option>
+                               <option value="POOR">POOR</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Completeness : </td>
+                        <td>
+                            <select name="game-completeness">
+                               <option value="0">Select a Game Completeness</option>
+                               <option value="C">Cartridge Only</option>
+                               <option value="I">Instructions Only</option>
+                               <option value="B">Box Only</option>
+                               <option value="CI">Cartridge and Instructions</option>
+                               <option value="IB">Instructions and Box</option>
+                               <option value="CB">Cartridge and Box</option>
+                               <option value="CIB">Cartridge, Instructions and Box (Complete)</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Bonus : </td>
+                        <td>
+                            <select name="game-bonus">
+                               <option value="0">Select a Game Bonus</option>
+                               <option value="B">Yes</option>
+                               <option value="NB">No</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Sell : </td>
+                        <td>
+                            <select name="game-sell">
+                               <option value="0">What's next ?</option>
+                               <option value="K">Keep the game</option>
+                               <option value="M">Might sell the game</option>
+                               <option value="S">Sell the game</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>
+                            <a href="#" class="btn btn-primary" id="add-game" style="margin-top: 10px;">Add Game</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>  
+      </div>
+    </form>
+</div>
+<div style="width:50%; display: table-cell;">
+    <div id="output-list" style="word-wrap:break-word;">   
+        <div id="query-result"></div>
+    </div>
+</div>
+</div>
+
+<script src="assets/date_picker.js"></script>
